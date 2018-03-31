@@ -1,8 +1,8 @@
 #!/bin/bash
+## Install Fusion 360 Version 1.0
 
-# Kill all open Autodesk Applications
+# Kill all open Autodesk Applications and wait
 pkill Fusion 360*
-sleep 5
 pkill Autodesk*
 sleep 5
 
