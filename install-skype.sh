@@ -1,12 +1,18 @@
 #!/bin/bash
+## Install Skype Version 1.0.1 by Jayke Peters
+## This script will install Skype on your Mac
 
-# This script will download and install Google Chrome on a fresh installation of Mac OS X.
-# Usage: curl -fkL gist.github.com/raw/4364590/install-chrome.sh | sh
+# Download the DMG to a temporary location
+curl -Lo /tmp/Skype.dmg https://go.skype.com/mac.download
 
-osascript /Users/jaykepeters/Desktop/mac-setup.dialog.scpt
+# Silently mount and hide the DMG from the user(s)
+hdiutil attach -noverify -nobrowse /tmp/Skype.dmg
 
-curl -Lo /tmp/Skype.dmg https://go.skype.com/mac.download;
-hdiutil attach -noverify -nobrowse /tmp/Skype.dmg;
-ditto -rsrc /Volumes/Skype/Skype.app /Applications/Skype.app;
-hdiutil detach /Volumes/Skype;
+# Copy the application to the applications folder
+ditto -rsrc /Volumes/Skype/Skype.app /Applications/Skype.app
+
+# Eject the Volume from the system
+hdiutil detach /Volumes/Skype
+
+# Remove the DMG from the temporary location
 rm /tmp/Skype.dmg;
