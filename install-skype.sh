@@ -15,4 +15,4 @@ ditto -rsrc /Volumes/Skype/Skype.app /Applications/Skype.app
 hdiutil detach /Volumes/Skype
 
 # Remove the DMG from the temporary location
-rm /tmp/Skype.dmg;
+rm /tmp/Skype.dmg
