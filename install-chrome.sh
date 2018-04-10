@@ -14,8 +14,6 @@ username=$(stat -f%Su /dev/console)
 homedir=$(eval echo "~${username}")
 
 install-chrome (){
-	echo ${homedir}
-	echo $username
 # Download the DMG from Google
 curl -Lo /tmp/Google\ Chrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 
