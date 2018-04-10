@@ -1,0 +1,36 @@
+#!/bin/bash
+
+## Check to see if the script is running as root
+if [ "$EUID" -ne 0 ]; then
+	apploc="~/Applications"
+else
+	apploc="/Applications"
+fi
+
+## Get the current user's username
+username=$(stat -f%Su /dev/console)
+
+## Get current user's home directory
+homedir=$(eval echo "~${username}")
+
+install-chrome (){
+	echo ${homedir}
+	echo $username
+# Download the DMG from Google
+curl -Lo /tmp/Google\ Chrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+
+# Silently mount the Volume
+hdiutil attach -nobrowse -noverify /tmp/Google\ Chrome.dmg
+
+# Move the Application to the Applications folder
+ditto --rsrc /Volumes/Google\ Chrome/Google\ Chrome.app "${homedir}/Applications/Google Chrome.app";
+
+# Eject the Volume
+hdiutil detach /Volumes/Google\ Chrome
+
+# Remove the DMG
+rm /tmp/Google\ Chrome.dmg;
+}
+
+## Perform the installation
+install-chrome
