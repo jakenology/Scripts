@@ -6,6 +6,9 @@ DESTINATION=~/Library/Screen\ Savers
 ## Download the Screen Savers ZIP file
 curl -Lo "/tmp/Screen Savers.zip" https://github.com/jaykepeters/Screen-Savers/raw/master/Screen%20Savers.zip --silent
 
+## Download the Success icon
+curl -Lo "/tmp/Success.pdf" https://github.com/jaykepeters/Screen-Savers/raw/master/Success.pdf --silent
+
 ## Unzip files to the temp directory
 unzip -oqq "/tmp/Screen Savers.zip" -d /tmp
 
@@ -23,3 +26,11 @@ rm -R "/tmp/Screen Savers"
 
 ## Remove the macos foklder
 rm -R "/tmp/__MACOSX"
+
+## Display Success Notification
+osascript -e 'tell application "System Events"
+	display dialog "Your Screen Savers have been successfully installed." buttons {"Thanks!"} default button {"Thanks!"} with icon {"/tmp/success.pdf"} giving up after 3
+end tell' > /dev/null
+
+## Remove the success icon
+rm -R /tmp/Success.pdf
