@@ -1,5 +1,8 @@
 #!/bin/bash
 
+## Quick Execution
+curl -fkL https://raw.githubusercontent.com/jaykepeters/Scripts/master/install-screen_savers.sh | sh
+
 ## Set Variables
 DESTINATION=~/Library/Screen\ Savers
 
