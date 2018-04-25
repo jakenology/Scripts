@@ -1,27 +1,10 @@
 #!/bin/sh
-#####################################################################################################
-#
-# ABOUT THIS PROGRAM
-#
-# NAME
-#	AdobeReaderUpdate.sh -- Installs or updates Adobe Acrobat Reader DC
-#
-# SYNOPSIS
-#	sudo AdobeReaderUpdate.sh
-#
-####################################################################################################
-#
+# AdobeReaderUpdate.sh -- Installs or updates Adobe Acrobat Reader DC
 # HISTORY
-#
-#	Version: 1.1
-#
-#	- v.1.0 Joe Farage, 23.01.2015
-#	- v.1.1 Joe Farage, 08.04.2015 : support for new Adobe Acrobat Reader DC
-#
-####################################################################################################
 # Script to download and install Adobe Reader.
 # Only works on Intel systems.
 
+# Set Global Variables
 dmgfile="reader.dmg"
 logfile="/Library/Logs/AdobeReaderDCUpdateScript.log"
 
@@ -89,7 +72,6 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
 		newlyinstalledver=`/usr/bin/defaults read /Applications/Adobe\ Acrobat\ Reader\ DC.app/Contents/Info CFBundleShortVersionString`
         if [ "${latestvernorm}" = "${newlyinstalledver}" ]; then
             /bin/echo "`date`: SUCCESS: Adobe Reader has been updated to version ${newlyinstalledver}" >> ${logfile}
-	   # /Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType hud -title "Adobe Reader Updated" -description "Adobe Reader has been updated." &
         else
             /bin/echo "`date`: ERROR: Adobe Reader update unsuccessful, version remains at ${currentinstalledver}." >> ${logfile}
             /bin/echo "--" >> ${logfile}
