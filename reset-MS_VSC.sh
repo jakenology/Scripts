@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.2.3
+## Reset MS VSC (Mac) - v1.2.4
 ## MIT License 
 ## Copyright 2018 Jayke Peters
 
@@ -9,7 +9,7 @@
 ## Set Global Variables
 start=$SECONDS
 username=$(stat -f%Su /dev/console)
-version="1.2.3"
+version="1.2.4"
 me=$(basename "$0")
 logfile=~/Library/Logs/$me.log
 today=$(date)
@@ -65,6 +65,8 @@ main() {
 
 verbose() {
     main
+    cat $logfile
+    sleep 5
     open $logfile
 }
 
