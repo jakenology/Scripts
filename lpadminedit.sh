@@ -1,4 +1,5 @@
 #!/bin/bash
+# Version 1.0
 # Allow anyone to install a printer
 # https://jamfnation.jamfsoftware.com/discussion.html?id=14640
 
