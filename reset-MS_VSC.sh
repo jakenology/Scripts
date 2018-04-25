@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.1
+## Reset MS VSC (Mac) - v1.1.1
 ## MIT License 
 ## Copyright 2018 Jayke Peters.
 
@@ -7,7 +7,7 @@
 # curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
 
 ## Set Global Variables
-version="1.1"
+version="1.1.1"
 
 ## Declare Arrays
 pids=($(pgrep Code))
@@ -29,6 +29,7 @@ initlog() {
       touch ~/Library/Logs/reset-vscode.log
    fi
    echo -e 'TASK\t \n' > ~/Library/Logs/Library/Logs/reset-vscode.log
+}
    
 # Attempt to Kill Visual Studio Code
 killapp() {
