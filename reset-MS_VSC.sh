@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.1.1
+## Reset MS VSC (Mac) - v1.2.0
 ## MIT License 
 ## Copyright 2018 Jayke Peters.
 
@@ -7,7 +7,11 @@
 # curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
 
 ## Set Global Variables
-version="1.1.1"
+username=$(stat -f%Su /dev/console)
+version="1.2.0"
+me=$(basename "$0")
+logfile=~/Library/Logs/$me.log
+today=$(date)
 
 ## Declare Arrays
 pids=($(pgrep Code))
@@ -24,38 +28,50 @@ list=(
 ## THIS IS WHERE ALL THE FUNCTIONS SHALL GO; DO NOT MODIFY BEYOND THIS POINT!!!
 # Initialize the log file
 initlog() {
-   if [ -f ~/Library/Logs/reset-vscode.log ]; then
-      rm -Rif ~/Library/Logs/reset-vscode.log
-      touch ~/Library/Logs/reset-vscode.log
-   fi
-   echo -e 'TASK\t \n' > ~/Library/Logs/Library/Logs/reset-vscode.log
+   echo $me started by USER $username on $today > $logfile
+   echo TASK >> $logfile
 }
    
 # Attempt to Kill Visual Studio Code
 killapp() {
     for pid in "${pids[@]}"; do
-        kill -9 $pid > /dev/null
+        echo -e 'killing PID no:\t' $pid >> $logfile
+        kill -9 $pid
     done    
 }
 
 # Iterate and remove all app files... (except for a few)
 removefiles() {
 for item in "${list[@]}"; do
-    echo removing $item >> ~/Library/Logs/reset-vscode.log
-    rm -Rif "$item" >> ~/Library/Logs/reset-vscode.log
+    echo removing $item >> $logfile
+    rm -Rif "$item" >> $logfile
 done
 }
 
 version() {
+    clear
     echo -e 'VERSION:\t' $version
+    exit 0
 }
 
 main() {
     initlog
-    killapp &
+    killapp > /dev/null 2>&1
     removefiles
+    echo completed at $today >> $logfile
 }
 
+verbose() {
+    open $logfile
+    main
+}
+
+help () {
+    clear
+    echo -e 'USAGE:\n'
+    echo "Display the script's version:"
+    echo "$me --Version | -V"
+}
 ## Check for USER Input
 if [[ $# = 0 ]]; then
     main
@@ -65,7 +81,14 @@ else
             *Version|*version|*V|*v)
             version
             ;;
+            *verbose|*Verbose|*VB|*vb)
+            verbose
+            ;;
+            *HELP|*help|*H|*h)
+            help
+            ;;
         esac
         shift
         done
 fi
+
