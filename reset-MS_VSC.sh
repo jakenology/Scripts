@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.0.2
+## Reset MS VSC (Mac) - v1.0.2.2
 ## MIT License 
 ## Copyright 2018 Jayke Peters.
 
@@ -7,7 +7,7 @@
 # curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
 
 ## Set Global Variables
-version="1.0.2"
+version="1.0.2.2"
 
 ## Declare Arrays
 pids=($(pgrep Code))
