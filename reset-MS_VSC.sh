@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.2.2
+## Reset MS VSC (Mac) - v1.2.3
 ## MIT License 
 ## Copyright 2018 Jayke Peters
 
@@ -7,12 +7,12 @@
 # curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
 
 ## Set Global Variables
+start=$SECONDS
 username=$(stat -f%Su /dev/console)
-version="1.2.2"
+version="1.2.3"
 me=$(basename "$0")
 logfile=~/Library/Logs/$me.log
 today=$(date)
-finish=$(date +"%T")
 
 ## Declare Arrays
 pids=($(pgrep Code))
@@ -59,7 +59,8 @@ main() {
     initlog
     killapp > /dev/null 2>&1
     removefiles
-    echo completed at $finish >> $logfile
+    duration=$(( SECONDS - start ))
+    echo Completed in $duration Seconds >> $logfile
 }
 
 verbose() {
