@@ -1,14 +1,14 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.2.0
+## Reset MS VSC (Mac) - v1.2.1
 ## MIT License 
-## Copyright 2018 Jayke Peters.
+## Copyright 2018 Jayke Peters
 
 ## Quick Execution
 # curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
 
 ## Set Global Variables
 username=$(stat -f%Su /dev/console)
-version="1.2.0"
+version="1.2.1"
 me=$(basename "$0")
 logfile=~/Library/Logs/$me.log
 today=$(date)
@@ -62,8 +62,8 @@ main() {
 }
 
 verbose() {
-    open $logfile
     main
+    open $logfile
 }
 
 help () {
