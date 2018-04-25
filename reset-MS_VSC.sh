@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.2.1
+## Reset MS VSC (Mac) - v1.2.2
 ## MIT License 
 ## Copyright 2018 Jayke Peters
 
@@ -8,10 +8,11 @@
 
 ## Set Global Variables
 username=$(stat -f%Su /dev/console)
-version="1.2.1"
+version="1.2.2"
 me=$(basename "$0")
 logfile=~/Library/Logs/$me.log
 today=$(date)
+finish=$(date +"%T")
 
 ## Declare Arrays
 pids=($(pgrep Code))
@@ -58,7 +59,7 @@ main() {
     initlog
     killapp > /dev/null 2>&1
     removefiles
-    echo completed at $today >> $logfile
+    echo completed at $finish >> $logfile
 }
 
 verbose() {
