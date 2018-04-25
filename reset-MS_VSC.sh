@@ -3,6 +3,9 @@
 ## MIT License 
 ## Copyright 2018 Jayke Peters.
 
+## Quick Execution
+# curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
+
 ## Set Global Variables
 version="1.0.2"
 
@@ -22,14 +25,14 @@ list=(
 # Attempt to Kill Visual Studio Code
 killapp() {
     for pid in "${pids[@]}"; do
-        kill -9 $pid
+        kill -9 $pid > /dev/null
     done    
 }
 
 # Iterate and remove all app files... (except for a few)
 removefiles() {
 for item in "${list[@]}"; do
-    echo -e 'TASK\t \n' > ~/Library/Logs/res    115.5et-vscode.log
+    echo -e 'TASK\t \n' > ~/Library/Logs/Library/Logs/reset-vscode.log
     echo removing $item >> ~/Library/Logs/reset-vscode.log
     rm -Rif "$item" >> ~/Library/Logs/reset-vscode.log
 done
