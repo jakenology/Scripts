@@ -1,7 +1,14 @@
-# Scripts
-Just, you know, a collection of BASH and Python scripts for your use.
-  
-  Please note, If Version < 1, Script=beta and not tested
-  - install-chrome.sh:    Installs the latest version of Google Chrome
-  - install-firefox.sh:   Installs the latest version of Mozilla Firefox
- 
+**JAYKEPETERS/SCRIPTS**
+    
+    This repository contains many helpful scripts of many languages for you and your Mac, some handcrafted by me, others sourced. Either way, these scripts will bring you a great user experience!
+
+**ITEMS CONTAINED**
+    
+- GoogleChromeInstall.sh
+- IU-Adobe-Reader.sh
+- fibonacci.swift
+- install-MS_VSC.sh
+- install-chrome.sh
+- install-firefox.sh
+- install-flash.sh
+- this list is not yet complete....
