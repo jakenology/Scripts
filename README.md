@@ -6,7 +6,7 @@ Some of my scripts rely on other command line tools or script to function. Here'
 -   User Installation Scripts -- Dockutil
 -   Swift scripts - Command Line Developer Tools
 ## **ITEMS CONTAINED**
-- [GoogleChromeInstall.sh](./GoogleChromeInstall.sh)
+- [GoogleChromeInstall.sh](./Folder/GoogleChromeInstall.sh)
 - [IU-Adobe-Reader.sh](./IU-Adobe-Reader.sh)
 - [fibonacci.swift](./fibonacci.swift)
 - [install-MS_VSC.sh](./install-MS_VSC.sh)
