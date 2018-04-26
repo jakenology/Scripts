@@ -5,7 +5,7 @@
 **ITEMS CONTAINED**
     
 - [GoogleChromeInstall.sh](./GoogleChromeInstall.sh)
-- IU-Adobe-Reader.sh
+- [IU-Adobe-Reader.sh](./IU-Adobe-Reader.sh)
 - fibonacci.swift
 - install-MS_VSC.sh
 - install-chrome.sh
