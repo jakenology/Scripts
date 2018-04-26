@@ -4,7 +4,7 @@ This repository contains many helpful scripts of many languages for you and your
 
 ## **DEPENDENCIES**
 **PLEASE NOTE:** Some scripts and tools rely on other CLTs or scripts to function properly. These can be found in the [**Resources**](./Resources) folder. Here's a complete list of the contents:
--   [Dockutil](./Resources/Dockutil)
+-   [Dockutil](./Resources/dockutil)
 
 ## **Admin**
 These scripts are for Mac Admins and System Administrators in general
@@ -17,15 +17,15 @@ These scripts are for Mac Admins and System Administrators in general
     - Install Google Chrome on your Mac
 - [IU-Adobe-Reader.sh](./IU-Adobe-Reader.sh)
     - Install or Update Adobe Reader DC
-- [fibonacci.swift](./fibonacci.swift)
+- [fibonacci.swift](./Misc./fibonacci.swift)
     - Fibonacci Number Thing (FMT-CLI)
-- [install-MS_VSC.sh](./install-MS_VSC.sh-)
+- [install-MS_VSC.sh](./Installs/install-MS_VSC.sh-)
     - Install Microsoft Visual Studio Code 
-- [install-chrome.sh](./install-chrome.sh)
+- [install-chrome.sh](./Installs/install-chrome.sh)
     - Install Google Chrome
-- [install-firefox.sh](./install-firefox.sh)
+- [install-firefox.sh](./Installs/install-firefox.sh)
     - Install Mozilla Firefox
-- [install-flash.sh](./install-flash.sh)
+- [install-flash.sh](./Installs/install-flash.sh)
     - Install Adobe Flash Player
 
 ### **NOTES**
