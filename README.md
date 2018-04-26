@@ -36,6 +36,8 @@ THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIB
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This will appear with six space characters in front of it
 
 ### Download this Repository
-```console
-USER:~ HOME sudo dscl . create /Users/$USER IsHidden 1
-``
+```
+YOUR-COMPUTER:~ YOURNAME$ cd Downloads
+YOUR-COMPUTER:Downloads YOURNAME$ git clone https://github.com/jaykepeters/Scripts.git
+
+```
