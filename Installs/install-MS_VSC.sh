@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Install MS VSC - v1.0.0
 ## Set Global Variables
 TEMP_DIR=/tmp
 ZIP_NAME="VSC.zip"
