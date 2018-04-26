@@ -12,4 +12,5 @@ This repository contains many helpful scripts of many languages for you and your
 - [install-firefox.sh](./install-firefox.sh)
 - [install-flash.sh](./install-flash.sh)
 
-THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIBUTE TO THE ORGANIZATION OF THIS REPOSITORY, PLEASE EMAIL ME: [Jayke Peters (Home)](mailto:jaykepeters@gmail.com)
+THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIBUTE TO THE ORGANIZATION OF THIS REPOSITORY, PLEASE EMAIL ME: <a href="mailto:jaykepeters@gmail.com?subject=I would like to help you with your repository">Jayke Peters (Home)</a>
+
