@@ -16,6 +16,12 @@ MAC:Downloads USER$ git clone https://github.com/jaykepeters/Scripts.git
 
 ## **Admin**
 These scripts are for Mac Admins and System Administrators in general
+-   [CreateMASReceipt.sh](./Admin/CreateMASReceipt.sh)
+    -   Create Mac App Store receipts for apps (Works well with the script below)
+-   [MASPKG.sh](./Admin/MASPKG.sh)
+    -   Captures Mac App Store installations
+-   [installPKGfromDMG.sh](./Admin/installPKGfromDMG.sh)
+    -   Silently install a package from a DMG file
 -   [lpadminedit.sh](./Admin/lpadminedit.sh)
     -   Allow all users to add or remove printers
 - [report-admins.sh](./Admin/report-admins.sh)
