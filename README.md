@@ -51,6 +51,5 @@ These scripts are for Mac Admins and System Administrators in general
 
 ## **[Uninstalls](./Uninstalls)**
 
-### **NOTES**
-THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIBUTE TO THE ORGANIZATION OF THIS REPOSITORY, PLEASE EMAIL ME: <a href="mailto:jaykepeters@gmail.com?subject=I would like to help you with your repository">Jayke Peters (Home)</a>
-
+# **HELP**
+Are you a novice? New to this whole programming thing? Been there done that. I am more than willing to help lead you in the right direction. Email me: <a href="mailto:jaykepeters@gmail.com?subject=I need help with the repository entitled Scripts">Jayke Peters (Home)</a>
