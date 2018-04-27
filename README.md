@@ -16,10 +16,11 @@ MAC:Downloads USER$ git clone https://github.com/jaykepeters/Scripts.git
 
 ## **Admin**
 These scripts are for Mac Admins and System Administrators in general
--   lpadminedit.sh
+-   [lpadminedit.sh](./Admin/lpadminedit.sh)
     -   Allow all users to add or remove printers
-- report-admins.sh
+- [report-admins.sh](./Admin/report-admins.sh)
     - Report all local user accounts with a UID above 500
+
 ## **Installs**
 - [GoogleChromeInstall.sh](./Folder/GoogleChromeInstall.sh)
     - Install Google Chrome on your Mac
