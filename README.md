@@ -48,7 +48,7 @@ These scripts are for Mac Admins and System Administrators in general
     - A pythonized version of install-skype.sh
 - [install-skype.sh](./Installs/install-skype.sh)
     - Install Microsoft's Skype
-    
+
 ## **[Miscellaneous](./Misc.)**
 - [fibonacci.swift](./Misc./fibonacci.swift)
     - Fibonacci Spiral Thingy
@@ -62,8 +62,13 @@ These scripts are for Mac Admins and System Administrators in general
     -   Reset Microsoft Visual Studio Code to default settings
 
 ## **[Setup](./Setup)**
+- [setup-user.sh](./Setup/setup-user.sh)
+    - Jayke's Favorite user settings for any mac
 
 ## **[Uninstalls](./Uninstalls)**
-
+- [uninstall-packages.sh](./Uninstalls/uninstall-packages.sh)
+    - Uninstall Stéphane Sudre's Packages 
+- [uninstall-printers.sh](./Uninstalls/uninstall-printers.sh)
+    - Uninstall all printers on your Mac 
 # **HELP**
 Are you a novice? New to this whole programming thing? Been there done that. I am more than willing to help lead you in the right direction. Email me: <a href="mailto:jaykepeters@gmail.com?subject=I need help with the repository entitled Scripts">Jayke Peters (Home)</a>
