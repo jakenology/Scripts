@@ -30,10 +30,10 @@ defaults write com.apple.frameworks.diskimages skip-verify TRUE
 echo User setup successful!!!
 
 # Grab the serial numnber
-serial=$(ioreg -c IOPlatformExpertDevice -d 2 | awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}')
+#serial=$(ioreg -c IOPlatformExpertDevice -d 2 | awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}')
 
 # Disable the accidental Google Chrome swipe 
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
-echo -e 'SERIAL\t\t MAC' >> ~/Desktop/Results.log
-echo $serial >> ~/Desktop/Results.log
+# Disable the damn photos openeing every time I plug in my iPhone
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
