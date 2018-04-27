@@ -46,6 +46,12 @@ These scripts are for Mac Admins and System Administrators in general
     - Fibonacci Spiral Thingy
 
 ## **[Resets](./Resets)**
+-   [reset-dock.sh](./Resets/reset-dock.sh)
+    -   Reset your users' Dock or DIY without admin priviledges
+-   [reset-launchpad.sh](./Resets/reset-launchpad.sh)
+    - Reset your users' Launchpad or DIY without admin priviledges
+-   [reset-MS_VSC.sh](./Resets/reset-MS_VSC.sh)
+    -   Reset Microsoft Visual Studio Code to default settings
 
 ## **[Setup](./Setup)**
 
