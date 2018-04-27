@@ -40,7 +40,15 @@ These scripts are for Mac Admins and System Administrators in general
     - Install Mozilla Firefox
 - [install-flash.sh](./Installs/install-flash.sh)
     - Install Adobe Flash Player
-
+- [install-fusion360.sh](./Installs/install-fusion360.sh)
+    - Install Autodesk Fusion 360 for standard users
+- [install-screen_savers.sh](./Installs/install-screen_savers.sh)
+    - Install a bunch of cool custom Screen Savers for your Mac
+- [install-skype.py](./Installs/install-skype.py)
+    - A pythonized version of install-skype.sh
+- [install-skype.sh](./Installs/install-skype.sh)
+    - Install Microsoft's Skype
+    
 ## **[Miscellaneous](./Misc.)**
 - [fibonacci.swift](./Misc./fibonacci.swift)
     - Fibonacci Spiral Thingy
