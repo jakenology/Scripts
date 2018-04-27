@@ -23,7 +23,7 @@ These scripts are for Mac Admins and System Administrators in general
 
 ## **Installs**
 - [GoogleChromeInstall.sh](./Installs/GoogleChromeInstall.sh)
-    - Install Google Chrome on your Mac
+    - Google Chrome Updater script for Admins
 - [IU-Adobe-Reader.sh](./Installs/IU-Adobe-Reader.sh)
     - Install or Update Adobe Reader DC
 - [install-MS_VSC.sh](./Installs/install-MS_VSC.sh-)
