@@ -22,9 +22,9 @@ These scripts are for Mac Admins and System Administrators in general
     - Report all local user accounts with a UID above 500
 
 ## **Installs**
-- [GoogleChromeInstall.sh](./Folder/GoogleChromeInstall.sh)
+- [GoogleChromeInstall.sh](./Installs/GoogleChromeInstall.sh)
     - Install Google Chrome on your Mac
-- [IU-Adobe-Reader.sh](./IU-Adobe-Reader.sh)
+- [IU-Adobe-Reader.sh](./Installs/IU-Adobe-Reader.sh)
     - Install or Update Adobe Reader DC
 - [install-MS_VSC.sh](./Installs/install-MS_VSC.sh-)
     - Install Microsoft Visual Studio Code 
