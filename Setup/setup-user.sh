@@ -35,5 +35,5 @@ echo User setup successful!!!
 # Disable the accidental Google Chrome swipe 
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
-# Disable the damn photos openeing every time I plug in my iPhone
+# Disable photos from opening everytime an iOS device is plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
