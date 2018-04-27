@@ -1,4 +1,5 @@
 # **JAYKEPETERS/SCRIPTS**
+![](https://familyaccess.sartell.k12.mn.us/pictures//903936.JPG?rev=0)
 ### **Description**
 This repository contains many helpful scripts of many languages for you and your Mac, some handcrafted by me, others sourced. Either way, these scripts will bring you a great user experience!
 
@@ -8,9 +9,9 @@ This repository contains many helpful scripts of many languages for you and your
 
 ## **Admin**
 These scripts are for Mac Admins and System Administrators in general
--   [lpadminedit.sh](./Admin/lpadminedit.sh)
+-   lpadminedit.sh
     -   Allow all users to add or remove printers
-- [report-admins.sh](./Admin/report-admins.sh)
+- report-admins.sh
     - Report all local user accounts with a UID above 500
 ## **Installs**
 - [GoogleChromeInstall.sh](./Folder/GoogleChromeInstall.sh)
@@ -37,7 +38,8 @@ THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIB
 
 ### Download this Repository
 ```
-YOUR-COMPUTER:~ YOURNAME$ cd Downloads
-YOUR-COMPUTER:Downloads YOURNAME$ git clone https://github.com/jaykepeters/Scripts.git
-
+MAC:~ USER$ cd Downloads
+MAC:Downloads USER$ git clone https://github.com/jaykepeters/Scripts.git
 ```
+
+![](https://familyaccess.sartell.k12.mn.us/pictures//903936.JPG?rev=0)
