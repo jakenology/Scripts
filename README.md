@@ -14,7 +14,7 @@ MAC:Downloads USER$ git clone https://github.com/jaykepeters/Scripts.git
 **PLEASE NOTE:** Some scripts and tools rely on other CLTs or scripts to function properly. These can be found in the [**Resources**](./Resources) folder. Here's a complete list of the contents:
 -   [Dockutil](./Resources/dockutil)
 
-## **Admin**
+## **[Admin](./Admin)**
 These scripts are for Mac Admins and System Administrators in general
 -   [CreateMASReceipt.sh](./Admin/CreateMASReceipt.sh)
     -   Create Mac App Store receipts for apps (Works well with the script below)
@@ -27,7 +27,7 @@ These scripts are for Mac Admins and System Administrators in general
 - [report-admins.sh](./Admin/report-admins.sh)
     - Report all local user accounts with a UID above 500
 
-## **Installs**
+## **[Installs](./Installs)**
 - [GoogleChromeInstall.sh](./Installs/GoogleChromeInstall.sh)
     - Google Chrome Updater script for Admins
 - [IU-Adobe-Reader.sh](./Installs/IU-Adobe-Reader.sh)
@@ -41,15 +41,15 @@ These scripts are for Mac Admins and System Administrators in general
 - [install-flash.sh](./Installs/install-flash.sh)
     - Install Adobe Flash Player
 
-## **Miscellaneous**
+## **[Miscellaneous](./Misc.)**
 - [fibonacci.swift](./Misc./fibonacci.swift)
     - Fibonacci Spiral Thingy
 
-## **Resets**
+## **[Resets](./Resets)**
 
-## **Setup**
+## **[Setup](./Setup)**
 
-## **Uninstalls**
+## **[Uninstalls](./Uninstalls)**
 
 ### **NOTES**
 THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIBUTE TO THE ORGANIZATION OF THIS REPOSITORY, PLEASE EMAIL ME: <a href="mailto:jaykepeters@gmail.com?subject=I would like to help you with your repository">Jayke Peters (Home)</a>
