@@ -26,7 +26,7 @@ These scripts are for Mac Admins and System Administrators in general
     - Google Chrome Updater script for Admins
 - [IU-Adobe-Reader.sh](./Installs/IU-Adobe-Reader.sh)
     - Install or Update Adobe Reader DC
-- [install-MS_VSC.sh](./Installs/install-MS_VSC.sh-)
+- [install-MS_VSC.sh](./Installs/install-MS_VSC.sh)
     - Install Microsoft Visual Studio Code 
 - [install-chrome.sh](./Installs/install-chrome.sh)
     - Install Google Chrome
