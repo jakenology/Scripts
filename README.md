@@ -36,6 +36,7 @@ These scripts are for Mac Admins and System Administrators in general
     - Install Microsoft Visual Studio Code 
 - [install-chrome.sh](./Installs/install-chrome.sh)
     - Install Google Chrome
+    - ***NO LONGER WORKING***
 - [install-firefox.sh](./Installs/install-firefox.sh)
     - Install Mozilla Firefox
 - [install-flash.sh](./Installs/install-flash.sh)
