@@ -65,6 +65,8 @@ These scripts are for Mac Admins and System Administrators in general
     -   Reset Microsoft Visual Studio Code to default settings
 
 ## **[Setup](./Setup)**
+- [setup-path.sh](./Setup/setup-path.sh)
+    - Creates a bin directory in your home folder, hides it, and then adds it to your $PATH
 - [setup-user.sh](./Setup/setup-user.sh)
     - Jayke's Favorite user settings for any mac
 
