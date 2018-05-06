@@ -6,8 +6,8 @@ This repository contains many helpful scripts of many languages for you and your
 
 ### Download this Repository
 ```
-MAC:~ USER$ cd Downloads
-MAC:Downloads USER$ git clone https://github.com/jaykepeters/Scripts.git
+$ cd Downloads
+$ git clone https://github.com/jaykepeters/Scripts.git
 ```
 
 ## **DEPENDENCIES**
