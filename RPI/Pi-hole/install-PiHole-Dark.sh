@@ -1,9 +1,9 @@
 #!/bin/bash
 ## Check to see if the script is running as root
-#if [ ! $EUID -gt 0 ]; then
+# if [ ! $EUID -gt 0 ]; then
  # echo "$USER" is not root
  # exit 0
-#fi
+# fi
 
 ## Perform the Installation
 # Change Directory
