@@ -17,3 +17,5 @@ chmod +x install.sh
 
 # Run the script
 ./install.sh
+
+echo done
