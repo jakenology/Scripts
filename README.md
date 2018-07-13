@@ -76,4 +76,4 @@ These scripts are for Mac Admins and System Administrators in general
 - [uninstall-printers.sh](./Uninstalls/uninstall-printers.sh)
     - Uninstall all printers on your Mac 
 # **HELP**
-Are you a novice? New to this whole programming thing? Been there done that. I am more than willing to help lead you in the right direction. Email me: <a href="mailto:jaykepeters@gmail.com?subject=I need help with the repository entitled Scripts">Jayke Peters (Home)</a>
+Are you a novice at scripting? I am more than willing to help lead you in the right direction. Email me: <a href="mailto:jaykepeters@gmail.com?subject=I need help with the repository entitled Scripts">Jayke Peters (Home)</a>
