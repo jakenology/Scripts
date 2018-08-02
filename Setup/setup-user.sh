@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Jayke's Mac Setup Script for User Settings
+# Set Global Variables
+currentUser=`ls -l /dev/console | cut -d " " -f4`
 
 # Disable reopen in preview
 defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
@@ -29,11 +31,18 @@ defaults write com.apple.frameworks.diskimages skip-verify TRUE
 # Notify the user that it was a success
 echo User setup successful!!!
 
-# Grab the serial numnber
-#serial=$(ioreg -c IOPlatformExpertDevice -d 2 | awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}')
-
 # Disable the accidental Google Chrome swipe 
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
 # Disable photos from opening everytime an iOS device is plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+
+# Enable Battery Percentage
+sudo -u $currentUser defaults write com.apple.menuextra.battery ShowPercent YES
+sudo -u $currentUser killall SystemUIServer
+
+# Disable Writing on Network Drives
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Force Screensaver Sleep to 0
+defaults write com.apple.screensaver.plist askForPasswordDelay -int 0
