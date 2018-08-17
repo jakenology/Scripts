@@ -1,5 +1,6 @@
 #!/bin/bash
 ## Login Banner Update Script
+## Inspired by https://www.daveperrett.com/articles/2007/03/27/change-the-ssh-login-message/
 ## Define Global Variables
 me=`basename "$0"`
 LOGFILE="/etc/$me.log"
