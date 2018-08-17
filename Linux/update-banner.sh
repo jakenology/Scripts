@@ -1,14 +1,54 @@
 #!/bin/bash
 ## Login Banner Update Script
 ## Define Global Variables
+me=`basename "$0"`
+LOGFILE="/etc/$me.log"
+RETAIN_NUM_LINES=10
+## --------------------- ##
 bannerSource="https://raw.githubusercontent.com/jaykepeters/UniPi/master/banners/vpn"
 bannerConfig="/etc/ssh/sshd_config"
 LINE1="# SSH Login Message"
 LINE2="Banner /etc/banner"
 
 ## Declare Functions
+init() {
+    clearShell() {
+        clear
+    }
+
+    isSilent() {
+        if [[ "$1" == "--silent" ]]; then
+            SILENT=true
+        fi
+    }
+
+    logSetup() {
+        TMP=$(tail -n $RETAIN_NUM_LINES $LOGFILE 2>/dev/null) && echo "${TMP}" > $LOGFILE
+        exec > >(tee -a $LOGFILE)
+        exec 2>&1
+    }
+
+    # Clear Shell
+    clearShell
+    
+    # Check for Input
+    isSilent
+
+    # Setup Logging
+    logSetup
+}
+
 message() {
+    echo "[$(date --rfc-3339=seconds)]: $*" >> $LOGFILE
     echo "$1"
+}
+
+silently() {
+  if $SILENT; then
+    $1 &>/dev/null
+  else
+    $1
+  fi
 }
 
 configCheck() {
@@ -24,8 +64,8 @@ configCheck() {
 
     updateMSG() {
         message "Updating Message..."
-        mkdir /etc/Downloads
-        wget "$bannerSource"
+        silently "mkdir /etc/Downloads"
+        silently "wget "$bannerSource""
         mv ./vpn /etc/banner
         message "Message Updated!"
     }
@@ -42,6 +82,7 @@ configCheck() {
 
 ## Declare Main Function
 main() {
+    init
     configCheck
 }
 
