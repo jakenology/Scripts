@@ -1,0 +1,19 @@
+#!/bin/bash
+# Google Cloud SSH Script
+echo "Welcome!" "The time is $(date)"
+echo "Please enter an instance name"
+read instance
+echo "Thank You!"
+echo "Please enter a zone"
+read zone
+echo "Thank You!"
+echo "Attempting SSH"
+gcloud compute ssh $instance --zone=""$zone""
+
+if [ "$?" = "0" ]; then
+  echo "SSH Failed"
+  echo "Something went terribly wrong. :("
+  echo "Connecting to the Serial Console?"
+fi
+
+gcloud compute --project=jpits-gcp connect-to-serial-port $instance --zone=""$zone""
