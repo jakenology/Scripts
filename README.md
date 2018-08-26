@@ -1,5 +1,4 @@
 # **JAYKEPETERS/SCRIPTS**
-![](https://familyaccess.sartell.k12.mn.us/pictures//903936.JPG?rev=0)
 
 ### **Description**
 This repository contains many helpful scripts of many languages for you and your Mac, some handcrafted by me, others sourced. Either way, these scripts will bring you a great user experience!
