@@ -2,8 +2,8 @@
 # Install Prey
 ## Set Global Variables
 tmpPKG=/tmp/prey.pkg
-apikey="YOUR API KEY GOES HERE... SCAN THE QR CODE ON PREY"
-
+apikey=*ddcb905a2e*
+fv=47
 # Get the latest package URL
 /bin/echo 'Finding Latest Package...'
 URL=$(/usr/bin/curl -s https://preyproject.com/download/ | /usr/bin/grep -Eo "(https)://[a-zA-Z0-9./?=_-]*.pkg")
@@ -16,5 +16,6 @@ URL=$(/usr/bin/curl -s https://preyproject.com/download/ | /usr/bin/grep -Eo "(h
 /bin/echo 'Installing Package to "/"...'
 API_KEY=$apikey /usr/sbin/installer -pkg $tmpPKG -target /
 
-
-
+# Remove the package
+/bin/echo 'Removing Installer Package'
+/bin/rm $tmpPKG
