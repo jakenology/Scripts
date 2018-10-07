@@ -2,8 +2,8 @@
 # Install Prey
 ## Set Global Variables
 tmpPKG=/tmp/prey.pkg
-apikey=*ddcb905a2e*
-fv=47
+apikey="YOURAPIKEY"
+
 # Get the latest package URL
 /bin/echo 'Finding Latest Package...'
 URL=$(/usr/bin/curl -s https://preyproject.com/download/ | /usr/bin/grep -Eo "(https)://[a-zA-Z0-9./?=_-]*.pkg")
