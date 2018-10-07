@@ -1,5 +1,5 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.2.4
+## Reset MS VSC (Mac) - v1.2.5
 ## MIT License 
 ## Copyright 2018 Jayke Peters
 
@@ -15,7 +15,7 @@ logfile=~/Library/Logs/$me.log
 today=$(date)
 
 ## Declare Arrays
-pids=($(pgrep Code))
+pids=($(pgrep Electron))
 list=(
 ~/Library/Preferences/com.microsoft.VSCode.helper.plist 
 ~/Library/Preferences/com.microsoft.VSCode.plist 
