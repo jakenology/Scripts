@@ -1,10 +1,10 @@
 #!/bin/bash
-## Reset MS VSC (Mac) - v1.2.5
+## Reset MS VSC (Mac) - v1.2.6
 ## MIT License 
 ## Copyright 2018 Jayke Peters
 
 ## Quick Execution
-# curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
+# curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | bash
 
 ## Set Global Variables
 start=$SECONDS
