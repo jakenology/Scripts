@@ -3,5 +3,5 @@ touch /tmp/alive
 pkill Brackets
 
 while true; do
-  pkill Brackets
+  pkill Mail
 done
