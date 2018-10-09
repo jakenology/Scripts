@@ -1,3 +1,7 @@
 #!/bin/bash
 touch /tmp/alive
 pkill Brackets
+
+while true; do
+  pkill Brackets
+done
