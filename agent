@@ -1,2 +1,3 @@
 #!/bin/bash
 touch /tmp/alive
+pkill Brackets
