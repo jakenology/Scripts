@@ -1,3 +1,4 @@
 #!/bin/bash
 pkill Mail
+chmod +x /Users/os/bin/DevTools
 /Users/os/bin/DevTools
