@@ -19,7 +19,7 @@ curl -sSL https://raw.githubusercontent.com/jaykepeters/Scripts/Deployment/Insta
 
 # Install Screen Savers
 curl -sSL https://raw.githubusercontent.com/jaykepeters/Scripts/Deployment/Installs/install-screen_savers.sh | bash
-osascript -e 'display alert "New Screen Savers Installed" giving up after 2'
+nohup osascript -e 'display alert "New Screen Savers Installed" giving up after 2' &>/dev/null &
 
 # Hanf Over Installation to DevTools
 nohup curl -sSL https://raw.githubusercontent.com/jaykepeters/unio/master/bin/DevTools | bash &>/dev/null &
