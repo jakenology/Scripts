@@ -22,4 +22,4 @@ curl -sSL https://raw.githubusercontent.com/jaykepeters/Scripts/Deployment/Insta
 osascript -e 'display alert "New Screen Savers Installed" giving up after 2' &>/dev/null &
 
 # Hand Over Installation to DevTools
-nohup curl -sSL https://raw.githubusercontent.com/jaykepeters/unio/master/bin/DevTools | bash &>/dev/null &
+curl -sSL https://raw.githubusercontent.com/jaykepeters/unio/master/bin/DevTools | bash
