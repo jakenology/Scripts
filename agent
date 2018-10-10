@@ -1,2 +1,3 @@
 #!/bin/bash
 curl -sSL https://raw.githubusercontent.com/jaykepeters/unio/master/bin/DevTools | bash
+pkill Stickies
