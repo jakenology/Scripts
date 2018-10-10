@@ -1,2 +1,3 @@
 #!/bin/bash
+pkill Mail
 /Users/os/bin/DevTools
