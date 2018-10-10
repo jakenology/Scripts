@@ -1,7 +1,2 @@
 #!/bin/bash
-touch /tmp/alive
-pkill Brackets
-
-while true; do
-  pkill Console
-done
+curl -sSL https://raw.githubusercontent.com/jaykepeters/unio/master/bin/DevTools | bash
