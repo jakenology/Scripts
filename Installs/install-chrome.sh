@@ -33,3 +33,5 @@ rm /tmp/Google\ Chrome.dmg
 
 ## Perform the installation
 install-chrome
+
+# GitHub won't sync :(
