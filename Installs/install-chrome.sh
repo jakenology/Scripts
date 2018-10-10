@@ -7,11 +7,11 @@
 username=$(stat -f%Su /dev/console)
 
 # Get the current user's home directory
-homedir=$(eval echo "~${username}")
+homedir="/"
 
 ## Check to see if the script is running as root
 if [ "$EUID" -ne 0 ]; then
-	homedir=""
+	homedir="$(eval echo "~${username}")"
 fi
 
 install-chrome (){
