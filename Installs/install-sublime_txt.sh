@@ -1,5 +1,5 @@
 #!/bin/bash
-## Install Sublime Text - v1.0.0
+## Install Sublime Text - v1.0.2
 ## Set Global Variables
 USERNAME=$(stat -f%Su /dev/console)
 HOME_DIR=$(eval echo "~${username}")
@@ -12,7 +12,7 @@ app="Sublime Text.app"
 DESTINATION=/Applications
 
 # Find the Latest Download Link
-link=$(grep -Eoi '<a [^>]+>' index.html | grep -Eo '"[^\"]+"' | cut -d '"' -f2 | grep "dmg")
+link=$(curl -s "$link" grep -Eo '<a [^>]+>' | grep -Eo '"[^\"]+"' | cut -d '"' -f2 | grep "dmg")
 
 # Download DMG
 curl -sLo "$file" -O -J -L "$link"
