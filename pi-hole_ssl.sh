@@ -29,6 +29,7 @@ function installCertbot() {
     apt-get install -y software-properties-common python-software-properties
     add-apt-repository ppa:certbot/certbot
     apt-get update
+    apt-get install certbot
 }
 
 function generateCert() {
