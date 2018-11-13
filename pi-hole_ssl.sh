@@ -5,6 +5,7 @@
 # Pretty much runs itself...
 ## Set Global Variables
 CFG_FILE=/tmp/test.conf
+hostname="www.example.com"
 
 function runSilentCommand() {
     #command="$@"
@@ -36,14 +37,6 @@ function generateCert() {
     certbot --quiet --agree-tos --email "$email" certonly --webroot -w "$webroot" -d "$domain"
 }
 
-function editConfig() {
-    "$@"
-    # Check the number of args "Only One"
-    if [ "$#" -gt "1" ]; then
-        echo "Only one argument is allowed..."
-    fi
-}
-
 function configCheck() {
     if [ ! -f "$CFG_FILE" ]; then
         echo "NO CONFIGURATION FILE"
@@ -71,21 +64,57 @@ function configCheck() {
             $var=$input
         fi
     done
-    # Check to see if a configuration profile is set
-    # If set, then check to  see if missing items.
-    # If missing, items, get known ones, and ask user for unknown
-    # All else fails, we cannot run this script in silent mode...
-    # WOrst case, exit 1 with error status, user is smart and can fix
+}
 
-    #CFG_FILE=/etc/test.conf
-    
+function editConfig() {
+    "$@"
+    # Check the number of args "Only One"
+    if [ "$#" -gt "1" ]; then
+        echo "Only one argument is allowed..."
+    fi
+}
+
+function find_replace() {
+    # Ensure File Exists
+    if [ ! -f "$3" ]; then 
+        return 1
+    else
+        findString="$1"
+        replaceString="$2"
+        fixFile="$3"
+        orig="${fixFile}.orig"
+        bak="${fixFile}.bak"
+
+        # Backup the Original File
+        if [ ! -f "$orig" ]; then
+            echo -e "BACKING UP FILE:\t" "$fixFile"
+            cp -R "$fixFile" "$orig"
+        fi
+
+        # Backup the Current Configuration
+        if [ -f "$bak" ]; then
+            echo -e "REMOVING EXISTING BACKUP:\t" "$bak"
+            rm -rif "$bak"
+        else
+            echo -e "BACKING UP:\t" "$fixFile"
+            cp -R "$fixFile" "$bak"
+        fi
+        
+        # Find and Replace Strings
+        sed -i "" 's#'${findString}'#'${replaceString}'#g' "$fixFile"
+        echo -e "$findString REPLACED WITH $replaceString IN $fixFile"
+        echo -e "REMOVING:\t" "$bak"
+        rm -rif "$bak"
+    fi
+}
+
+function apply_settings() {
+    find_replace "http://127.0.0.1" "https://$hostname" "/Users/os/Desktop/fix.txt"
 }
 
 function main() {
-    # Testing the silent function. Will kill safari's parent process found in app path
-    runSilentCommand 'kill -9 $(pgrep -f "Safari.app" | head -n 1)'
-    runsilentCommand 'asd'
-    configCheck
+   #configCheck
+    apply_settings
 }
 
 # Run Me!
