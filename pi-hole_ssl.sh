@@ -102,6 +102,16 @@ function find_replace() {
         
         # Find and Replace Strings
         sed -i "" 's#'${findString}'#'${replaceString}'#g' "$fixFile"
+
+        # Some versions of SED will not play nice...
+        if [ "$?" -ne "0" ]; then
+            echo -e "replace_strings exited with:\t $?" "Retrying..."
+            sed -i 's#'${findString}'#'${replaceString}'#g' "$fixFile"
+            if [ "$?" -ne "0" ]; then
+                echo -e "find_replace:\t" "exited with:\t" "$?"
+            fi
+        fi
+
         echo -e "$findString REPLACED WITH $replaceString IN $fixFile"
         echo -e "REMOVING:\t" "$bak"
         rm -rif "$bak"
@@ -109,7 +119,8 @@ function find_replace() {
 }
 
 function apply_settings() {
-    find_replace "http://127.0.0.1" "https://$hostname" "/Users/os/Desktop/fix.txt"
+    find_replace "http://127.0.0.1" "https://$hostname" "/tmp/example.txt"
+    #service lighttpd reload
 }
 
 function main() {
