@@ -4,13 +4,19 @@
 ## Output Redirection
 ## Define Global Variables
 me=`basename "$0"`
-version="1.0"
+version="1.1"
 file="/tmp/safesearch.txt"
 url="https://www.google.com/supported_domains"
 
 ## Logging Variables
 log="/var/log/${me}.log"
 maxRuns=100
+
+## Arrays
+bingSS=(
+    cname=bing.com,strict.bing.com
+    cname=www.bing.com,strict.bing.com
+)
 
 ## Setup Logging
 exec 2>>$log
@@ -91,6 +97,11 @@ generate() {
         echo cname="www""$domain",forcesafesearch.google.com >> "${file}"
     done
 
+    # Bing Strict Setting
+    for line in "${bingSS[@]}"
+        do echo "$line"  >> "${file}"
+    done
+    
     # Notify User of Number of Domains
     count=$(cat $file | grep 'forcesafesearch.google.com' | wc -l)
     total=$(($count * 2))
@@ -127,9 +138,9 @@ help() {
     Usage: $me [options]
     Example: '$me --web'
     
-    -w  ,   --web     For use with PHP Script
-    -s  ,   --silent  Execute Script Silently
-    -h  ,   --help    Display this help message"
+    -w, --web     For use with PHP Script
+    -s, --silent  Execute Script Silently
+    -h, --help    Display this help message"
 }
 
 ## Check for user input
