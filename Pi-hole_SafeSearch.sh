@@ -160,12 +160,12 @@ generate() {
         silently pihole -b "${badEXACT[@]}"
         silently pihole --wild "${badWILD[@]}"
         silently pihole --regex "${REGEX[@]}"
-    fi
-
-    if [ "$RESTART" == "True" ]; then
-        logger all 'RELOADING PIHOLE FTL'
-        silently service pihole-FTL restart
-    fi
+        
+        if [ "$RESTART" == "True" ]; then
+            logger all 'RELOADING PIHOLE FTL'
+            silently service pihole-FTL restart
+        fi
+    fi   
 }
 
 main() {
