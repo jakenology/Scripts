@@ -5,7 +5,7 @@
 ## Define Global Variables
 ## ENABLE IN PIHOLE?
 ENABLE=True
-RELOAD_PIHOLE=True
+RESTART=True
 
 me=`basename "$0"`
 version="1.2"
@@ -136,11 +136,9 @@ generate() {
         done
     fi
 
-    if [ "$RELOAD_PIHOLE" == "True" ]; then
-        logger all 'RELOADING HOSTS CONFIGURATION'
-        service networking reload
+    if [ "$RESTART" == "True" ]; then
         logger all 'RELOADING PIHOLE FTL'
-        service pihole-FTL reload
+        silently service pihole-FTL restart
     fi
 }
 
