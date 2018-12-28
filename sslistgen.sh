@@ -134,7 +134,7 @@ generate() {
         done
     fi
 
-    if [ "$ENABLE" == "True" & "$RELOAD_PIHOLE" == "True" ]; then
+    if [ "$RELOAD_PIHOLE" == "True" ]; then
         logger all 'RELOADING HOSTS CONFIGURATION'
         service networking reload
         logger all 'RELOADING PIHOLE FTL'
