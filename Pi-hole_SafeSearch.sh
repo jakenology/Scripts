@@ -196,6 +196,7 @@ else
     case "${1}" in
         *w | *web     ) web;;
         *s | *silent* ) quiet;;
+        *v | *version) echo -e 'Current Version:\t' "$VERSION";;
         *h | *help    ) help;;
         *             ) help "$@";;
     esac
