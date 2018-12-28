@@ -12,7 +12,7 @@
 /usr/sbin/dseditgroup -o edit -n /Local/Default -a 'Domain Users' -t group lpadmin 
 
 # Kill The Following Applications
-for app in "System Preferences" "Self Service"
+for app in "System Preferences"
 do
 	# Search running processes and find ".app" bundle
 	kill -9 $(pgrep -f "$app.app" | head -n 1)
