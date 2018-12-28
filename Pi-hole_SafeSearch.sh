@@ -38,6 +38,16 @@ badEXACT=(
     "search.aol.com"
 )
 badWILD=(("duckduckgo.com"))
+REGEX=(
+    "(^|\.).+xxx$"
+    "(^|\.).+sexy$"
+    "(^|\.).+webcam$"
+    "(^|\.).+sex$"
+    "(^|\.).+porn$"
+    "(^|\.).+tube$"
+    "(^|\.).+cam$"
+    "(^|\.).+adult$"
+)
 
 ## Setup Logging
 exec 2>>$log
@@ -147,6 +157,7 @@ generate() {
         logger all 'BLOCKING OTHER BAD SITES'
         silently pihole -b "${badEXACT[@]}"
         silently pihole --wild "${badWILD[@]}"
+        silently pihole --regex "${REGEX[@]}"
     fi
 
     if [ "$RESTART" == "True" ]; then
