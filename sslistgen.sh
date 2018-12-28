@@ -15,7 +15,7 @@ hosts="/etc/hosts"
 url="https://www.google.com/supported_domains"
 
 ## Logging Variables
-log="/tmp/${me}.log"
+log="/var/log/${me}.log"
 maxRuns=10
 
 ## Arrays
