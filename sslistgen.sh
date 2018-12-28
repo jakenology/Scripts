@@ -28,7 +28,7 @@ ssHosts=(
     "############## DO NOT DELETE ##############"
     "216.239.38.120 forcesafesearch.google.com"
     "204.79.197.220 strict.bing.com"
-    "############## DO NOT DELETE ##############"
+    "############-- DO NOT DELETE --############"
 )
 
 ## Setup Logging
