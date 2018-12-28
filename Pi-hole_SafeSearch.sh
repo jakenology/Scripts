@@ -7,7 +7,7 @@ ENABLE=True
 RESTART=True
 
 me=`basename "$0"`
-version="1.3.0"
+VERSION="1.3.0"
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
 hosts="/etc/hosts"
@@ -53,13 +53,19 @@ REGEX=(
 ## Setup Logging
 exec 2>>$log
 logger() {
-    write() {echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*" >> $log}
-    print() {echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*"}
+    write() {
+        echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*" >> $log
+    }
+    print() {
+        echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*"
+    }
     all() {
         write "$*" 
         print "$*"
     }
-    pass() {echo "$*"}
+    pass() {
+        echo "$*"
+    }
     error() {
         write "$*"
         pass "$*"
