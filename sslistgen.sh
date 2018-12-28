@@ -3,19 +3,27 @@
 # Created by Jayke Peters
 ## Output Redirection
 ## Define Global Variables
+## ENABLE IN PIHOLE?
+ENABLE=True
+
 me=`basename "$0"`
-version="1.1"
+version="1.2"
 file="/tmp/safesearch.txt"
 url="https://www.google.com/supported_domains"
 
 ## Logging Variables
 log="/var/log/${me}.log"
-maxRuns=100
+maxRuns=10
 
 ## Arrays
 bingSS=(
     cname=bing.com,strict.bing.com
     cname=www.bing.com,strict.bing.com
+)
+
+ssHosts=(
+    216.239.38.120 forcesafesearch.google.com
+    204.79.197.220 strict.bing.com
 )
 
 ## Setup Logging
@@ -102,6 +110,16 @@ generate() {
         do echo "$line"  >> "${file}"
     done
     
+    # Enable In Hosts and Pi-hole
+    if [ "ENABLE=True" ]; then
+        echo $(cat "$file") > /etc/dnsmasq.d/05-restrict.conf
+        for host in "${ssHosts[@]}"; do 
+            if ! grep -Fxq "$host" /etc/hosts
+                echo "$host" > /etc/hosts
+            fi
+        done
+    fi
+        
     # Notify User of Number of Domains
     count=$(cat $file | grep 'forcesafesearch.google.com' | wc -l)
     total=$(($count * 2))
