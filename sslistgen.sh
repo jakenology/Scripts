@@ -126,6 +126,7 @@ generate() {
         logger all 'ENABLING SAFESEARCH FOR PI-HOLE'
         if [ -f "$conf" ]; then
             rm -Rf "$conf"
+            cp -R "$file" "$conf"
         else
             cp -R "$file" "$conf"
         fi
