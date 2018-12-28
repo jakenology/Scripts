@@ -31,6 +31,14 @@ ssHosts=(
     "############-- DO NOT DELETE --############"
 )
 
+## Other sites may expose adult content!
+badEXACT=(
+    "images.search.yahoo.com"
+    "video.search.yahoo.com"
+    "search.aol.com"
+)
+badWILD=(("duckduckgo.com"))
+
 ## Setup Logging
 exec 2>>$log
 logger() {
@@ -135,6 +143,10 @@ generate() {
                 echo "$host" >> "$hosts"
             fi
         done
+        # Extra Blocking
+        logger all 'BLOCKING OTHER BAD SITES'
+        silently pihole -b "${badEXACT[@]}"
+        silently pihole --wild "${badWILD[@]}"
     fi
 
     if [ "$RESTART" == "True" ]; then
