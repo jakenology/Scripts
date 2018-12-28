@@ -8,7 +8,7 @@ ENABLE=True
 RESTART=True
 
 me=`basename "$0"`
-version="1.2"
+version="1.2.1"
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
 hosts="/etc/hosts"
@@ -37,7 +37,9 @@ badEXACT=(
     "video.search.yahoo.com"
     "search.aol.com"
 )
-badWILD=(("duckduckgo.com"))
+badWILD=(
+    "duckduckgo.com"
+)
 REGEX=(
     "(^|\.).+xxx$"
     "(^|\.).+sexy$"
