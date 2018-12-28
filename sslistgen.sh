@@ -114,7 +114,7 @@ generate() {
     if [ "ENABLE=True" ]; then
         echo $(cat "$file") > /etc/dnsmasq.d/05-restrict.conf
         for host in "${ssHosts[@]}"; do 
-            if ! grep -Fxq "$host" /etc/hosts
+            if ! grep -Fxq "$host" /etc/hosts; then
                 echo "$host" > /etc/hosts
             fi
         done
