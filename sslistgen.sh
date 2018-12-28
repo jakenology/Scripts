@@ -5,14 +5,17 @@
 ## Define Global Variables
 ## ENABLE IN PIHOLE?
 ENABLE=True
+RELOAD_PIHOLE=True
 
 me=`basename "$0"`
 version="1.2"
 file="/tmp/safesearch.txt"
+conf="/etc/dnsmasq.d/05-restrict.conf"
+hosts="/etc/hosts"
 url="https://www.google.com/supported_domains"
 
 ## Logging Variables
-log="/var/log/${me}.log"
+log="/tmp/${me}.log"
 maxRuns=10
 
 ## Arrays
@@ -22,8 +25,8 @@ bingSS=(
 )
 
 ssHosts=(
-    216.239.38.120 forcesafesearch.google.com
-    204.79.197.220 strict.bing.com
+    "216.239.38.120 forcesafesearch.google.com"
+    "204.79.197.220 strict.bing.com"
 )
 
 ## Setup Logging
@@ -105,26 +108,38 @@ generate() {
         echo cname="www""$domain",forcesafesearch.google.com >> "${file}"
     done
 
+    # Notify User of Number of Domains
+    count=$(cat $file | grep 'forcesafesearch.google.com' | wc -l)
+    total=$(($count * 2))
+    logger all ''$count' TLDs'
+    logger all ''$total' Domains'
+
     # Bing Strict Setting
     for line in "${bingSS[@]}"
         do echo "$line"  >> "${file}"
     done
     
     # Enable In Hosts and Pi-hole
-    if [ "ENABLE=True" ]; then
-        echo $(cat "$file") > /etc/dnsmasq.d/05-restrict.conf
+    if [ "$ENABLE" == "True" ]; then
+        logger all 'ENABLING SAFESEARCH FOR PI-HOLE'
+        if [ -f "$conf" ]; then
+            rm -Rf "$conf"
+        else
+            cp -R "$file" "$conf"
+        fi
         for host in "${ssHosts[@]}"; do 
-            if ! grep -Fxq "$host" /etc/hosts; then
-                echo "$host" > /etc/hosts
+            if ! grep -Fxq "$host" "$hosts"; then
+                echo "$host" >> "$hosts"
             fi
         done
     fi
-        
-    # Notify User of Number of Domains
-    count=$(cat $file | grep 'forcesafesearch.google.com' | wc -l)
-    total=$(($count * 2))
-    logger all ''$count' TLDs'
-    logger all ''$total' Domains'
+
+    if [ "$ENABLE" == "True" & "$RELOAD_PIHOLE" == "True" ]; then
+        logger all 'RELOADING HOSTS CONFIGURATION'
+        service networking reload
+        logger all 'RELOADING PIHOLE FTL'
+        service pihole-FTL reload
+    fi
 }
 
 main() {
