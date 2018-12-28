@@ -1,7 +1,6 @@
 #!/bin/bash
-# SafeSearch List Generator
+# SafeSearch List Generator for Pi-hole 4.0 and above
 # Created by Jayke Peters
-## Output Redirection
 ## Define Global Variables
 ## ENABLE IN PIHOLE?
 ENABLE=True
@@ -54,28 +53,17 @@ REGEX=(
 ## Setup Logging
 exec 2>>$log
 logger() {
-    write() {
-        echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*" >> $log
-    }
-
-    print() {
-        echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*"
-    }
-
+    write() {echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*" >> $log}
+    print() {echo [`date '+%Y-%m-%d %H:%M:%S:%3N'`]: "$*"}
     all() {
         write "$*" 
         print "$*"
     }
-
-    pass() {
-        echo "$*"
-    }
-
+    pass() {echo "$*"}
     error() {
         write "$*"
         pass "$*"
     }
-
     begin() {
         # Enforce Run Count
         runNum=$(cat $log | grep 'STARTED' | wc -l)
@@ -85,7 +73,6 @@ logger() {
         fi
         write STARTED 
     }
-
     end() {
         write STOPPED
         # https://wtanaka.com/node/7719
@@ -94,7 +81,6 @@ logger() {
         line=$(for ((i=1; i<=$end; i++)); do echo -n =; done)
         pass $line >> $log
     }
-
     # Take Input
     "$@"
 }
