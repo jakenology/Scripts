@@ -32,6 +32,7 @@ ssHosts=(
 
 ## Other sites may expose adult content!
 badEXACT=(
+    "www.ecosia.org"
     "images.search.yahoo.com"
     "video.search.yahoo.com"
     "search.aol.com"
