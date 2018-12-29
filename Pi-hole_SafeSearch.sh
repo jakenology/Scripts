@@ -4,6 +4,8 @@
 ## Define Global Variables
 ## ENABLE IN PIHOLE?
 ENABLE=True
+# YouTube?
+YOUTUBE=True
 RESTART=True
 
 me=`basename "$0"`
@@ -18,6 +20,14 @@ log="/var/log/${me}.log"
 maxRuns=10
 
 ## Arrays
+# YouTube
+ytSS=(
+   "cname=www.youtube.com,restrict.youtube.com"
+   "cname=m.youtube.com,restrict.youtube.com"
+   "cname=youtubei.googleapis.com,restrict.youtube.com"
+   "cname=youtube.googleapis.com,restrict.youtube.com"
+   "cname=www.youtube-nocookie.com,restrict.youtube.com"
+)
 bingSS=(
     cname=bing.com,strict.bing.com
     cname=www.bing.com,strict.bing.com
@@ -26,6 +36,7 @@ bingSS=(
 ssHosts=(
     "############## DO NOT DELETE ##############"
     "216.239.38.120 forcesafesearch.google.com"
+    "216.239.38.120 restrict.youtube.com"
     "204.79.197.220 strict.bing.com"
     "############-- DO NOT DELETE --############"
 )
@@ -129,6 +140,13 @@ generate() {
     logger all ''$count' TLDs'
     logger all ''$total' Domains'
 
+    # YouTube SafeSearch 
+    if [ "$YOUTUBE" == "True" ]; then
+        for line in "${ytSS[@]}"
+            do echo "$line"  >> "${file}"
+        done
+    fi
+    
     # Bing Strict Setting
     for line in "${bingSS[@]}"
         do echo "$line"  >> "${file}"
