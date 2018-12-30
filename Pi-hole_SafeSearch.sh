@@ -5,11 +5,11 @@
 ## ENABLE IN PIHOLE?
 ENABLE=True
 # YouTube?
-YOUTUBE=True
+YOUTUBE=False
 RESTART=True
 
 me=`basename "$0"`
-VERSION="1.3.1" # Added more domains to block...
+VERSION="1.4" # Added more support for DuckDuckGo
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
 hosts="/etc/hosts"
@@ -36,6 +36,7 @@ bingSS=(
 ssHosts=(
     "############## DO NOT DELETE ##############"
     "216.239.38.120 forcesafesearch.google.com"
+    "50.16.250.179 safe.duckduckgo.com"
     "216.239.38.120 restrict.youtube.com"
     "204.79.197.220 strict.bing.com"
     "############-- DO NOT DELETE --############"
@@ -50,8 +51,14 @@ badEXACT=(
     "gibiru.com"
     "www.startpage.com"
 )
-badWILD=(
-    "duckduckgo.com"
+#badWILD=(
+    #"duckduckgo.com"
+#) # As per request of msatter, replacing with below:
+duckduckgoSS=(
+    "cname=duckduckgo.com,safe.duckduckgo.com"
+    "cname=www.duckduckgo.com,safe.duckduckgo.com"
+    "cname=duck.com,safe.duckduckgo.com"
+    "cname=www.duck.com,safe.duckduckgo.com"
 )
 REGEX=(
     "(^|\.).+xxx$"
@@ -148,6 +155,11 @@ generate() {
             do echo "$line"  >> "${file}"
         done
     fi
+    
+    # DuckDuckGo SafeSearch, requested by msatter
+    for line in "${duckduckgoSS[@]}"
+        do echo "$line" >> "${file}"
+    done
     
     # Bing Strict Setting
     for line in "${bingSS[@]}"
