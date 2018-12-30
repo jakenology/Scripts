@@ -187,8 +187,8 @@ generate() {
         silently pihole --regex "${REGEX[@]}"
         
         if [ "$RESTART" == "True" ]; then
-            logger all 'RELOADING PIHOLE FTL'
-            silently service pihole-FTL restart
+            logger all 'RESTARTING DNS'
+            silently pihole restartdns # Another Feature
         fi
     fi   
 }
