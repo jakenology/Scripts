@@ -9,7 +9,7 @@ YOUTUBE=True
 RESTART=True
 
 me=`basename "$0"`
-VERSION="1.3.0"
+VERSION="1.3.1" # Added more domains to block...
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
 hosts="/etc/hosts"
@@ -47,6 +47,8 @@ badEXACT=(
     "images.search.yahoo.com"
     "video.search.yahoo.com"
     "search.aol.com"
+    "gibiru.com"
+    "www.startpage.com"
 )
 badWILD=(
     "duckduckgo.com"
@@ -210,6 +212,7 @@ help() {
     
     -w, --web     For use with PHP Script
     -s, --silent  Execute Script Silently
+    -v, --version Display the Script's Version
     -h, --help    Display this help message"
 }
 
