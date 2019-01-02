@@ -206,6 +206,7 @@ help() {
     logger pass "$me version $version
     Usage: $me [options]
     Example: '$me --web'
+    
     -e, --enable  Enable SafeSearch
     -d, --disable Disable SafeSearch
     -w, --web     For use with PHP Script
@@ -225,8 +226,8 @@ disable() {
     logger all 'Removing Config File'
     rm -rf "$conf"
     logger all 'Unblocking Domains and TLDs'
-    silently pihole --regex --delmode "${badEXACT[@]}"
-    silently pihole -b --delmode "${badEXACT[@]}"
+    silently pihole regex --delmode "${REGEX[@]}"
+    silently pihole blacklist --delmode "${badEXACT[@]}"
     logger all 'Restartding DNS'
     silently pihole restartdns
     logger all 'SafeSearch is Disabled!'
