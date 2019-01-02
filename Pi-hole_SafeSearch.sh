@@ -3,16 +3,12 @@
 # Created by Jayke Peters
 ## Define Global Variables
 ## ENABLE IN PIHOLE?
-ENABLE=True
-# YouTube?
 YOUTUBE=False
-RESTART=True
 
 me=`basename "$0"`
-VERSION="1.4" # Added more support for DuckDuckGo
+VERSION="1.5" # Discovered host records are avaiable in dnsmasq files...
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
-hosts="/etc/hosts"
 url="https://www.google.com/supported_domains"
 
 ## Logging Variables
@@ -20,7 +16,13 @@ log="/var/log/${me}.log"
 maxRuns=10
 
 ## Arrays
-# YouTube
+# Host Records!!!
+hostRecords=(
+    "host-record=forcesafesearch.google.com,216.239.38.120"
+    "host-record=safe.duckduckgo.com,107.20.240.232"
+    "host-record=restrict.youtube.com,216.239.38.120"
+    "host-record=strict.bing.com,204.79.197.220"
+)
 ytSS=(
    "cname=www.youtube.com,restrict.youtube.com"
    "cname=m.youtube.com,restrict.youtube.com"
@@ -29,20 +31,8 @@ ytSS=(
    "cname=www.youtube-nocookie.com,restrict.youtube.com"
 )
 bingSS=(
-    cname=bing.com,strict.bing.com
-    cname=www.bing.com,strict.bing.com
+    "cname=bing.com,www.bing.com,strict.bing.com"
 )
-
-ssHosts=(
-    "############## DO NOT DELETE ##############"
-    "216.239.38.120 forcesafesearch.google.com"
-    "50.16.250.179 safe.duckduckgo.com"
-    "216.239.38.120 restrict.youtube.com"
-    "204.79.197.220 strict.bing.com"
-    "############-- DO NOT DELETE --############"
-)
-
-## Other sites may expose adult content!
 badEXACT=(
     "www.ecosia.org"
     "images.search.yahoo.com"
@@ -51,14 +41,9 @@ badEXACT=(
     "gibiru.com"
     "www.startpage.com"
 )
-#badWILD=(
-    #"duckduckgo.com"
-#) # As per request of msatter, replacing with below:
 duckduckgoSS=(
-    "cname=duckduckgo.com,safe.duckduckgo.com"
-    "cname=www.duckduckgo.com,safe.duckduckgo.com"
-    "cname=duck.com,safe.duckduckgo.com"
-    "cname=www.duck.com,safe.duckduckgo.com"
+    "cname=duckduckgo.com,www.duckduckgo.com,safe.duckduckgo.com"
+    "cname=duck.com,www.duck.com,safe.duckduckgo.com"
 )
 REGEX=(
     "(^|\.).+xxx$"
@@ -136,14 +121,18 @@ generate() {
     echo "# $file generated on $(date '+%m/%d/%Y %H:%M') by $(hostname)" >> "${file}"
     echo "# Google SafeSearch Implementation" >> "${file}" 
 
+    # Add host records
+    for line in "${hostRecords[@]}"; do
+        echo "$line" >> "${file}"
+    done
+
     # Generate list of domains
     for domain in "${domains[@]}"; do
         dom=$(echo $domain | cut -c 2-)
-        echo cname=$dom,forcesafesearch.google.com >> "${file}"
-        echo cname="www""$domain",forcesafesearch.google.com >> "${file}"
+        echo cname=$dom,"www""$domain",forcesafesearch.google.com >> "${file}"
     done
 
-    # Notify User of Number of Domains
+    # Get the number of domains
     count=$(cat $file | grep 'forcesafesearch.google.com' | wc -l)
     total=$(($count * 2))
     logger all ''$count' TLDs'
@@ -156,7 +145,7 @@ generate() {
         done
     fi
     
-    # DuckDuckGo SafeSearch, requested by msatter
+    # DuckDuckGo SafeSearch
     for line in "${duckduckgoSS[@]}"
         do echo "$line" >> "${file}"
     done
@@ -183,13 +172,9 @@ generate() {
         # Extra Blocking
         logger all 'BLOCKING OTHER BAD SITES'
         silently pihole -b "${badEXACT[@]}"
-        silently pihole --wild "${badWILD[@]}"
         silently pihole --regex "${REGEX[@]}"
-        
-        if [ "$RESTART" == "True" ]; then
-            logger all 'RESTARTING DNS'
-            silently pihole restartdns # Another Feature
-        fi
+        # We do not need to do "pihole restartdns"
+        # The above commands reload it every time...
     fi   
 }
 
@@ -221,19 +206,40 @@ help() {
     logger pass "$me version $version
     Usage: $me [options]
     Example: '$me --web'
-    
+    -e, --enable  Enable SafeSearch
+    -d, --disable Disable SafeSearch
     -w, --web     For use with PHP Script
     -s, --silent  Execute Script Silently
     -v, --version Display the Script's Version
     -h, --help    Display this help message"
 }
 
+enable() {
+    ENABLE=True
+    main
+}
+
+disable() {
+    logger all 'Removing Temp File'
+    rm -rf "$file"
+    logger all 'Removing Config File'
+    rm -rf "$conf"
+    logger all 'Unblocking Domains and TLDs'
+    silently pihole --regex --delmode "${badEXACT[@]}"
+    silently pihole -b --delmode "${badEXACT[@]}"
+    logger all 'Restartding DNS'
+    silently pihole restartdns
+    logger all 'SafeSearch is Disabled!'
+
+}
 ## Check for user input
 if [[ $# = 0 ]]; then
     main
 else
     logger write "ARGUMENTS: $1"
     case "${1}" in
+        *e | *enable ) enable;;
+        *d | *disable) disable;;
         *w | *web     ) web;;
         *s | *silent* ) quiet;;
         *v | *version) echo -e 'Current Version:\t' "$VERSION";;
