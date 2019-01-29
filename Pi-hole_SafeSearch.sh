@@ -6,7 +6,7 @@
 YOUTUBE=False
 
 me=`basename "$0"`
-VERSION="1.5" # Discovered host records are avaiable in dnsmasq files...
+VERSION="1.6" # Fixed IP Address for Duckduckgo. Added SafeSearch for pixabay...
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
 url="https://www.google.com/supported_domains"
@@ -19,9 +19,10 @@ maxRuns=10
 # Host Records!!!
 hostRecords=(
     "host-record=forcesafesearch.google.com,216.239.38.120"
-    "host-record=safe.duckduckgo.com,107.20.240.232"
+    "host-record=safe.duckduckgo.com,54.241.17.246"
     "host-record=restrict.youtube.com,216.239.38.120"
     "host-record=strict.bing.com,204.79.197.220"
+    "host-record=safesearch.pixabay.com,176.9.158.70"
 )
 ytSS=(
    "cname=www.youtube.com,restrict.youtube.com"
@@ -44,6 +45,9 @@ badEXACT=(
 duckduckgoSS=(
     "cname=duckduckgo.com,www.duckduckgo.com,safe.duckduckgo.com"
     "cname=duck.com,www.duck.com,safe.duckduckgo.com"
+)
+pixabaySS=(
+    "cname=pixabay.com,safesearch.pixabay.com"
 )
 REGEX=(
     "(^|\.).+xxx$"
@@ -152,6 +156,11 @@ generate() {
     
     # Bing Strict Setting
     for line in "${bingSS[@]}"
+        do echo "$line"  >> "${file}"
+    done
+    
+    # Pixabay
+    for line in "${pixabaySS[@]}"
         do echo "$line"  >> "${file}"
     done
     
