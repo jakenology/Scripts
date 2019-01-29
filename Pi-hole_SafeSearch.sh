@@ -6,7 +6,7 @@
 YOUTUBE=False
 
 me=`basename "$0"`
-VERSION="1.6" # Fixed IP Address for Duckduckgo. Added SafeSearch for pixabay...
+VERSION="1.6.1" # Fixed IP Address for Duckduckgo. Added SafeSearch for pixabay..., also fixed spelling error 
 file="/tmp/safesearch.txt"
 conf="/etc/dnsmasq.d/05-restrict.conf"
 url="https://www.google.com/supported_domains"
@@ -237,7 +237,7 @@ disable() {
     logger all 'Unblocking Domains and TLDs'
     silently pihole regex --delmode "${REGEX[@]}"
     silently pihole blacklist --delmode "${badEXACT[@]}"
-    logger all 'Restartding DNS'
+    logger all 'Restarting DNS'
     silently pihole restartdns
     logger all 'SafeSearch is Disabled!'
 
