@@ -100,6 +100,11 @@ logger() {
     # Take Input
     "$@"
 }
+## Check Sudo
+if [ "$EUID" -ne 0 ];then 
+    echo "Please run this script with sudo!"
+    exit 1
+fi
 
 ## START LOGGING EVERYTHING
 logger begin
@@ -108,12 +113,6 @@ silently() {
     "$@" &>/dev/null
 }
 
-checkSudo() {
-    if [ "$EUID" -ne 0 ];then 
-        echo "Please run this script with sudo!"
-        exit 1
-    fi
-}
 preCheck() {
     # Check for sudo rights
     checkSudo
