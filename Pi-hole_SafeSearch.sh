@@ -108,7 +108,16 @@ silently() {
     "$@" &>/dev/null
 }
 
+checkSudo() {
+    if [ "$EUID" -ne 0 ];then 
+        echo "Please run this script with sudo!"
+        exit 1
+    fi
+}
 preCheck() {
+    # Check for sudo rights
+    checkSudo
+    
     # Is there an old file?
     if [ -f "$file" ]; then
         logger all Removing "$file"
