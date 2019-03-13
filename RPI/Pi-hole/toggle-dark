@@ -11,7 +11,7 @@ function enable() {
     sudo rm -f skin-blue.min.css
     sudo cp pi-hole-midnight/skin-blue.min.css .
     sudo rm -rf pi-hole-midnight
-    "Dark Mode Enabled!"
+    echo "Dark Mode Enabled!"
     exit 
 }
 
