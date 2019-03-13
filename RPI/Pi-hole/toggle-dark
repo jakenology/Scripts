@@ -1,0 +1,45 @@
+#!/bin/bash
+# Toogle Pi-hole Dark Mode
+
+function silently() {
+    "$@" &>/dev/null
+}
+
+function enable() {
+    cd /var/www/html/admin/style/vendor/
+    silently sudo git clone https://github.com/jacobbates/pi-hole-midnight.git
+    sudo rm -f skin-blue.min.css
+    sudo cp pi-hole-midnight/skin-blue.min.css .
+    sudo rm -rf pi-hole-midnight
+    "Dark Mode Enabled!"
+    exit 
+}
+
+function disable() {
+    cd /var/www/html/admin/style/vendor/
+    silently git reset --hard
+    echo "Dark Mode Disabled!"
+    exit
+}
+
+function check_sudo() {
+    if [[ ! $EUID -eq 0 ]]; then
+        if [[ -x "$(command -v sudo)" ]]; then
+            exec sudo bash "$0" "$@"
+            exit $?
+        else
+            echo "You must have sudo rights to use this tool :("
+            exit 1
+        fi
+    fi
+}
+
+function main() {
+    check_sudo
+}
+
+case "${1}" in
+    *e | *enable    ) enable;;
+    *d | *disable   ) disable;;
+    *               ) echo "-e, --enable OR -d, --disable are vaild options for Pi-hole Dark Mode";;
+esac
