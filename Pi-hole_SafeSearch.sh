@@ -43,7 +43,7 @@ badEXACT=(
     "www.startpage.com"
 )
 duckduckgoSS=(
-    "cname=duckduckgo.com,www.duckduckgo.com,safe.duckduckgo.com"
+    "cname=duckduckgo.com,www.duckduckgo.com,start.duckduckgo.com,safe.duckduckgo.com"
     "cname=duck.com,www.duck.com,safe.duckduckgo.com"
 )
 pixabaySS=(
