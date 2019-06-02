@@ -1,37 +1,20 @@
 #!/bin/bash
-## Copyright 2018 Jayke Peters.
-## Install-Chrome Version 1.0.2
+## Google Chrome Install Script
+function install() {
+    # Install Google Chrome
+    curl -sSL https://raw.githubusercontent.com/jaykepeters/Scripts/Deployment/Installs/GoogleChromeInstall.sh | bash
 
-## Set Variables
-# Get the current user's username
-username=$(stat -f%Su /dev/console)
-
-# Get the current user's home directory
-homedir="/"
-
-## Check to see if the script is running as root
-if [ "$EUID" -ne 0 ]; then
-	homedir="$(eval echo "~${username}")"
-fi
-
-install-chrome (){
-# Download the DMG from Google
-curl -Lo /tmp/Google\ Chrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-
-# Mount the Volume
-hdiutil attach -nobrowse -noverify /tmp/Google\ Chrome.dmg
-
-# Move the Application to the Applications folder
-ditto --rsrc /Volumes/Google\ Chrome/Google\ Chrome.app "${homedir}/Applications/Google Chrome.app"
-
-# Eject the Volume
-hdiutil detach /Volumes/Google\ Chrome
-
-# Remove the DMG
-rm /tmp/Google\ Chrome.dmg
+    # Enable Updates
+    curl -sSL https://raw.githubusercontent.com/hjuutilainen/adminscripts/master/chrome-enable-autoupdates.py | python -
 }
 
-## Perform the installation
-install-chrome
-
-# GitHub won't sync :(
+if [ "$EUID" -ne 0 ]; then
+    echo "You must run this script as root"
+else
+    if [ ! -d "/Applications/Google Chrome.app" ]; then
+        echo "Google Chrome is not installed"
+        install
+    else
+        echo "Google Chrome is installed"
+    fi
+fi
