@@ -13,4 +13,6 @@ profiles=`profiles -C -v | awk -F: '/attribute: name/{print $NF}' | grep "$PROFI
             echo "Profile does not exists"
             curl -Lo $profile $link
             profiles -I -F $profile
-exit 0
+            rm -rf $profile
+    fi
+exit 0 # exit
