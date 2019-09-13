@@ -12,4 +12,5 @@ else
     echo 'Installing PSS from new repo...'
     curl -L 'https://raw.githubusercontent.com/jaykepeters/PSS/master/Pi-hole_SafeSearch.sh' -o $pss
     chmod a+x $pss
+    Pi-hole_SafeSearch.sh "$@"
 fi
