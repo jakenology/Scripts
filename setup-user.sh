@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Jayke's Mac Setup Script for User Settings
+# Mac Setup Script for User Settings
 
 # Disable reopen in preview
 defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
