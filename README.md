@@ -15,4 +15,3 @@ Some of my scripts rely on other command line tools or script to function. Here'
 - [install-flash.sh](./install-flash.sh)
 
 ### **NOTES**
-THIS MARKDOWN FORMATTED README IS NOT YET COMPLETE. IF YOU WOULD LIKE TO CONTRIBUTE TO THE ORGANIZATION OF THIS REPOSITORY, PLEASE EMAIL ME: <a href="mailto:jaykepeters@gmail.com?subject=I would like to help you with your repository">Jayke Peters (Home)</a>
