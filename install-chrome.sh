@@ -1,5 +1,5 @@
 #!/bin/bash
-## Copyright 2018 Jayke Peters.
+## Copyright 2018 JakeNology
 ## Install-Chrome Version 1.0.2
 
 ## Set Variables
