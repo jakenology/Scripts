@@ -4,7 +4,7 @@
 ## Copyright 2018 JakeNology
 
 ## Quick Execution
-# curl -fkl https://raw.githubusercontent.com/jaykepeters/Scripts/master/reset-MS_VSC.sh | sh
+# curl -fkl https://raw.githubusercontent.com/jakenology/Scripts/master/reset-MS_VSC.sh | sh
 
 ## Set Global Variables
 start=$SECONDS
