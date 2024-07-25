@@ -1,6 +1,6 @@
 #!/bin/bash
 # Pi-hole SSL Activator 
-# Created by Jayke Peters
+# Created by JakeNology
 # November 9, 2018
 ## Set Global Variables
 CFG_FILE=/tmp/test.conf
