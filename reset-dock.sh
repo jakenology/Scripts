@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Reset Dock Version 1.1
-## Created and tested by Jayke Peters on 03/23/2018. 
+## Created and tested by JakeNology on 03/23/2018. 
 ## Deployable via macOS Server, Centrify, JumpCloud, Casper Suite/Jamf Pro as a Policy and other MDM solutions.
 # Note that the ".sh" file extension is not needed as long as the shebang is on top (the interpreter), however it is needed in all JAMF solutions.
 # Using the which command, the paths were specified as this script may fail when deployed via Casper Suite/Jamf Pro.
