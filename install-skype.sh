@@ -1,5 +1,5 @@
 #!/bin/bash
-## Install Skype Version 1.0.1 by Jayke Peters
+## Install Skype Version 1.0.1 by JakeNology
 ## This script will install Skype on your Mac
 
 # Download the DMG to a temporary location
