@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Reset Dock Version 1.2
-## Created and tested by Jayke Peters on 03/23/2018. 
+## Created and tested by JakeNology on 03/23/2018. 
 ## Modified Apr 26
 ## Modified October 6
 ## Deployable via Centrify, JumpCloud, Jamf Pro and other solutions.
