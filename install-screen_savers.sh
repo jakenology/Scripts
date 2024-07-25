@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Screen Savers Installer
 ## Version 2.0.1
-## Created by Jayke Peters on 2018-04-11
+## Created by JakeNology on 2018-04-11
 ## MIT License
 
 ## Quick Execution
