@@ -1,8 +1,7 @@
 #!/bin/bash
 ## List all preference panes and their identifiers
 ## Can be used to craft configuration profiles
-## Copyright 2019 Jayke Peters
-
+## Copyright 2019 JakeNology
 ## Apple provided
 echo "Apple System Preference Panes"
 for pane in /System/Library/PreferencePanes/*; do
