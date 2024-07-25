@@ -1,11 +1,11 @@
 #!/bin/bash
 ## Screen Savers Installer
 ## Version 2.0.1
-## Created by Jayke Peters on 2018-04-11
+## Created by JakeNology on 2018-04-11
 ## MIT License
 
 ## Quick Execution
-## curl -fkL https://raw.githubusercontent.com/jaykepeters/Scripts/master/install-screen_savers.sh | sh
+## curl -fkL https://raw.githubusercontent.com/jakenology/Scripts/master/install-screen_savers.sh | sh
 
 ## Set Variables
 username=$(stat -f%Su /dev/console)
@@ -61,7 +61,7 @@ progress=5
 echo 'Downloading ZIP...'
 echo 'Downloading ZIP...' >> ${logfile}
 
-curl -Lo "/tmp/Screen Savers.zip" https://github.com/jaykepeters/Screen-Savers/raw/master/Screen%20Savers.zip --silent > /dev/null
+curl -Lo "/tmp/Screen Savers.zip" https://github.com/jakenology/Screen-Savers/raw/master/Screen%20Savers.zip --silent > /dev/null
 num=$(($num + $progress))
 echo "$num% Complete"
 echo "PROGRESS:$num"
@@ -69,7 +69,7 @@ echo "PROGRESS:$num"
 ## Download Success icon
 progress=5
 echo 'Downloading Installer Support Files...'
-curl -Lo "/tmp/Success.pdf" https://github.com/jaykepeters/Screen-Savers/raw/master/Success.pdf --silent > /dev/null
+curl -Lo "/tmp/Success.pdf" https://github.com/jakenology/Screen-Savers/raw/master/Success.pdf --silent > /dev/null
 num=$(($num + $progress))
 echo "$num% Complete"
 echo "PROGRESS:$num"
