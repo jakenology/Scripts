@@ -5,7 +5,7 @@
 ## MIT License
 
 ## Quick Execution
-## curl -fkL https://raw.githubusercontent.com/jaykepeters/Scripts/master/install-screen_savers.sh | sh
+## curl -fkL https://raw.githubusercontent.com/jakenology/Scripts/master/install-screen_savers.sh | sh
 
 ## Set Variables
 username=$(stat -f%Su /dev/console)
