@@ -1,4 +1,4 @@
-# **JAYKEPETERS/SCRIPTS**
+# **JAKENOLOGY/SCRIPTS**
 
 ### **Description**
 This repository contains a variety of helpful scripts in many languages for the Mac computer, some sourced and others handcrafted by myself. Either way, using these scripts is gauranteed to be a great user experience!
@@ -6,7 +6,7 @@ This repository contains a variety of helpful scripts in many languages for the 
 ### Download this Repository
 ```
 $ cd Downloads
-$ git clone https://github.com/jaykepeters/Scripts.git
+$ git clone https://github.com/jakenology/Scripts.git
 ```
 
 ## **DEPENDENCIES**
@@ -75,4 +75,3 @@ These scripts are for Mac Admins and System Administrators in general:
 - [uninstall-printers.sh](./Uninstalls/uninstall-printers.sh)
     - Uninstalls all printers on your Mac 
 # **HELP**
-Are you a novice at scripting? I am happy to provide pointers and direction in your education. Email me: <a href="mailto:jaykepeters@gmail.com?subject=I need help with the repository entitled Scripts">Jayke Peters (Home)</a>
