@@ -1,5 +1,5 @@
 #!/bin/bash
-# By Jayke Peters (Works with Jumpcloud on MBP 2013, just delete the jamf parts)
+# By JakeNology (Works with Jumpcloud on MBP 2013, just delete the jamf parts)
 # Taken from https://www.jamf.com/jamf-nation/discussions/22854/managing-the-authorization-database
 /usr/bin/security authorizationdb write system.preferences allow 
 /usr/bin/security authorizationdb write system.preferences.datetime allow
