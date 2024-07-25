@@ -10,7 +10,7 @@ if [ $EUID -ne 0 ]; then
 else 
     echo 'I moved! See the comments in this script for more information...'
     echo 'Installing PSS from new repo...'
-    curl -L 'https://raw.githubusercontent.com/jaykepeters/PSS/master/Pi-hole_SafeSearch.sh' -o $pss
+    curl -L 'https://raw.githubusercontent.com/jakenology/PSS/master/Pi-hole_SafeSearch.sh' -o $pss
     chmod a+x $pss
     Pi-hole_SafeSearch.sh "$@"
 fi
