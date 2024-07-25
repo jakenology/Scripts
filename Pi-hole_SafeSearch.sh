@@ -1,6 +1,6 @@
 #!/bin/bash
 ### I MOVED! ###
-### https://github.com/jaykepeters/pss ###
+### https://github.com/jakenology/pss ###
 ### If you see this, you're lucky :) 
 ### If not, you still are :)
 ### I will install from the new source for you
